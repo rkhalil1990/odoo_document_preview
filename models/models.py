@@ -22,4 +22,4 @@ class document_preview(models.Model):
 	@api.one
 	def _compute_url(self):
 		base_url = self.env["ir.config_parameter"].search([("key", "=", "web.base.url")]).value
-		self.doc_url = "https://docs.google.com/gview?url=" + base_url + '/web/image/%s?unique=%s' % (self.id, self.checksum)
+		self.doc_url = base_url + '/web/image/%s?unique=%s' % (self.id, self.checksum)
